@@ -1,0 +1,23 @@
+start:
+    add $t0, $t1, $zero
+    beq $t0, $t1, stage
+    beq $t0, $t1, stage
+    addi $t1, $t2, 10
+    sub $t1, $t2, $t3
+    subi $t1, $t2, 10
+    and $t2, $t3, $t4
+    andi $t1, $t4, 5
+    or $t2, $t3, $t4
+stage:
+    ori $t1, $t4, 5
+    j middle
+    nor $t2, $t3, $t4    
+    sw $t0, 3($t1)
+    lw $t2, 4($t3)
+middle:
+    beq $t0, $t2, stage
+    bneq $t0, $t2, stage
+    j start
+finish:
+    and $t2, $t3, $t4
+    andi $t1, $t4, 5
